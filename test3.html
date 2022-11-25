@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Introduce oneself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/png" href="http://example.com/myicon.png" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+      integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./js/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div>
+          <!-- <a class="p1">Page1</a> -->
+          <a class="p2">自我介紹</a>
+          <a class="p3">工作技能</a>
+          <a class="p4">工作經歷</a>
+        </div>
+      </header>
+      <div class="page1">
+        <div>
+            <img v-bind:src="img1" alt="" />
+        </div>
+        <div class="img2">
+            <img v-bind:src="img2" alt="" />
+        </div>
+      </div>
+      <div class="page2">
+        <div class="container">
+          <div class="row content d-flex justify-content-center">
+            <div class="row d-flex justify-content-center align-items-center">
+              <div class="col-12 col-sm-3">
+                <img v-bind:src="image" alt="" />
+              </div>
+              <div class="col-12 col-sm-6 name">
+                <h2>{{name}}<span>{{nameeng}}</span></h2>
+                <p>{{bir}}</p>
+                <p><i class="fa-solid fa-house"></i>{{add}}</p>
+                <p><i class="fa-solid fa-envelope"></i>{{email}}</p>
+                <p><i class="fa-solid fa-phone"></i>{{phone}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-10">
+              <p class="text">
+                {{introduce()}}
+                <br />
+                <br />
+                {{introduce2()}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page3">
+        <div class="container">
+          <div class="row content">
+            <div class="col-6 col-sm-4 d-flex flex-column align-items-center">
+              <h5>HTML/CSS</h5>
+              <div class="circle">
+                <div class="p90"></div>
+                <div class="p180"></div>
+                <div class="p270"></div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-4 d-flex flex-column align-items-center">
+              <h5>Bootstrap</h5>
+              <div class="circle">
+                <div class="p90"></div>
+                <div class="p180"></div>
+                <div class="p270"></div>
+              </div>
+            </div>
+            <div class="col-6 col-sm-4 d-flex flex-column align-items-center">
+              <h5>Javascript</h5>
+              <div class="circle">
+                <div class="p90"></div>
+                <div class="p180"></div>
+                <!-- <div class="p270"></div> -->
+              </div>
+            </div>
+            <div class="col-6 col-sm-4 d-flex flex-column align-items-center">
+              <h5>jQuery</h5>
+              <div class="circle">
+                <div class="p90"></div>
+                <div class="p180"></div>
+                <!-- <div class="p270"></div> -->
+              </div>
+            </div>
+            <div class="col-6 col-sm-4 d-flex flex-column align-items-center">
+              <h5>Figma</h5>
+              <div class="circle">
+                <div class="p90"></div>
+                <div class="p180"></div>
+                <!-- <div class="p270"></div> -->
+              </div>
+            </div>
+            <div class="col-6 col-sm-4 d-flex flex-column align-items-center">
+              <h5>Vue.js</h5>
+              <div class="circle">
+                <div class="p90"></div>
+                <!-- <div class="p180"></div>
+            <div class="p270"></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page4">
+        <div class="container">
+          <div class="row content">
+            <div class="col-12">
+              <h5>工作經歷</h5>
+            </div>
+            <div class="col-3 col-sm-3">
+              <p>
+                2022 <br />
+                | <br />
+                2019
+              </p>
+              <p class="year1">
+                2019 <br />
+                | <br />
+                2018
+              </p>
+            </div>
+            <div class="col-9 col-sm-8">
+              <div class="border-left">
+                <h3>德明財經科技大學</h3>
+                <p>
+                  {{ profession1() }}
+                </p>
+              </div>
+              <div class="border-left">
+                <h3>雨揚科技股份有限公司</h3>
+                <p>
+                  {{profession2()}}
+                </p>
+              </div>
+            </div>
+            <div class="col-12">
+              <h4>學歷</h4>
+            </div>
+            <div class="col-3 col-sm-3">
+              <p>2014</p>
+              <p class="year2">2010</p>
+            </div>
+            <div class="col-9 col-sm-8">
+              <div class="border-left">
+                <h3>德明財經科技大學</h3>
+                <p>資訊科技系</p>
+              </div>
+              <div class="border-left">
+                <h3>士林高商</h3>
+                <p>國際貿易科</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a id="scrollTop"><i class="fas fa-angle-double-up fa-4x"></i></a>
+    </div>
+    <script>
+      $(function () {
+        // 點擊，回到最前面
+        $("#scrollTop").on("click", function () {
+          $("html").stop().animate({ scrollTop: 0 }, 400);
+        });
+
+        //========================================
+
+        $(".p1").on("click", function () {
+          let blockTop = $(".page1").offset().top;
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
+        });
+
+        $(".p2").on("click", function () {
+          let blockTop = $(".page2").offset().top;
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
+        });
+
+        $(".p3").on("click", function () {
+          let blockTop = $(".page3").offset().top;
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
+        });
+
+        $(".p4").on("click", function () {
+          let blockTop = $(".page4").offset().top;
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
+        });
+      });
+    </script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            img1:"https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80",
+            img2:"https://wallpaperaccess.com/full/96462.jpg",
+            name: "陳明廷",
+            nameeng: "Ming-Ting Chen",
+            bir: "1992/07/24",
+            add: "台北市",
+            email: "akira810724@gmail.com",
+            phone: "0986-605-705",
+            image: "./image/mingting.jpg",
+          };
+        },
+        methods: {
+          introduce() {
+            return "您好我是陳明廷，今年30歲，畢業於德明財經科技大學，資訊科技系。大學畢業後從事了餐飲業、物流業到前段時間回到母校圖書館服務約三年的時間。今年八月開始學習網頁設計。";
+          },
+          introduce2() {
+            return "目前熟悉HTML、CSS及RWD網頁切版的部分，Bootstrap、Javascript、jQuery、Figma及Git都有學習，有一定程度的了解，現在在學習Vue.js。我個性上較溫和，容易和大家相處，做事比較低調，但團隊需要我的時候我很樂意挺身而出。";
+          },
+          profession1(){
+            return "圖書館網頁設計維護/圖書館系統、設備及數位資源學習區維護/紙本圖書採購及編目/活動攝影/影片剪輯";
+          },
+          profession2(){
+            return "倉庫物品、物料進出管理/ 貨品的輸送與成品包裝/定期清點物料並將物料標示放於正確位置/ 定期追蹤複查庫存紀錄";
+          },
+        },
+        computed: {},
+      }).mount("#app");
+    </script>
+  </body>
+</html>
