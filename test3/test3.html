@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Untitled Document</title>
+    <title>Introduce oneself</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <!-- bootstrap -->
@@ -47,13 +47,10 @@
       </header>
       <div class="page1">
         <div>
-          <img
-            src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80"
-            alt=""
-          />
+            <img v-bind:src="img1" alt="" />
         </div>
         <div class="img2">
-          <img src="https://wallpaperaccess.com/full/96462.jpg" alt="" />
+            <img v-bind:src="img2" alt="" />
         </div>
       </div>
       <div class="page2">
@@ -61,24 +58,22 @@
           <div class="row content d-flex justify-content-center">
             <div class="row d-flex justify-content-center align-items-center">
               <div class="col-12 col-sm-3">
-                <img src="./image/mingting.jpg" alt="" />
+                <img v-bind:src="image" alt="" />
               </div>
               <div class="col-12 col-sm-6 name">
-                <h2>陳明廷<span>Ming-Ting Chen</span></h2>
-                <p>1992/07/24</p>
-                <p><i class="fa-solid fa-house"></i>台北市</p>
-                <p><i class="fa-solid fa-envelope"></i>akira810724@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i>0986-605-705</p>
+                <h2>{{name}}<span>{{nameeng}}</span></h2>
+                <p>{{bir}}</p>
+                <p><i class="fa-solid fa-house"></i>{{add}}</p>
+                <p><i class="fa-solid fa-envelope"></i>{{email}}</p>
+                <p><i class="fa-solid fa-phone"></i>{{phone}}</p>
               </div>
             </div>
             <div class="col-12 col-sm-10">
               <p class="text">
-                您好我是陳明廷，今年30歲，畢業於德明財經科技大學，資訊科技系。大學畢業後從事了餐飲業、物流業到前段時間回到母校圖書館服務約三年的時間。
-                今年八月開始學習網頁設計。
+                {{introduce()}}
                 <br />
                 <br />
-                目前熟悉HTML、CSS及RWD網頁切版的部分，Bootstrap、Javascript
-                、jQuery、Figma及Git都有學習，有一定程度的了解，現在在學習Vue.js。我個性上較溫和，容易和大家相處，做事比較低調，但團隊需要我的時候我很樂意挺身而出。
+                {{introduce2()}}
               </p>
             </div>
           </div>
@@ -160,15 +155,13 @@
               <div class="border-left">
                 <h3>德明財經科技大學</h3>
                 <p>
-                  圖書館網頁設計維護/
-                  圖書館系統、設備及數位資源學習區維護/紙本圖書採購及編目/活動攝影/影片剪輯
+                  {{ profession1() }}
                 </p>
               </div>
               <div class="border-left">
                 <h3>雨揚科技股份有限公司</h3>
                 <p>
-                  倉庫物品、物料進出管理/ 貨品的輸送與成品包裝/
-                  定期清點物料並將物料標示放於正確位置/ 定期追蹤複查庫存紀錄
+                  {{profession2()}}
                 </p>
               </div>
             </div>
@@ -199,31 +192,64 @@
       $(function () {
         // 點擊，回到最前面
         $("#scrollTop").on("click", function () {
-          $("html").stop().animate({ scrollTop: 0 }, 2000);
+          $("html").stop().animate({ scrollTop: 0 }, 400);
         });
 
         //========================================
 
         $(".p1").on("click", function () {
           let blockTop = $(".page1").offset().top;
-          $("html").stop().animate({ scrollTop: blockTop }, 700);
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
         });
 
         $(".p2").on("click", function () {
           let blockTop = $(".page2").offset().top;
-          $("html").stop().animate({ scrollTop: blockTop }, 700);
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
         });
 
         $(".p3").on("click", function () {
           let blockTop = $(".page3").offset().top;
-          $("html").stop().animate({ scrollTop: blockTop }, 700);
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
         });
 
         $(".p4").on("click", function () {
           let blockTop = $(".page4").offset().top;
-          $("html").stop().animate({ scrollTop: blockTop }, 700);
+          $("html").stop().animate({ scrollTop: blockTop }, 400);
         });
       });
+    </script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            img1:"https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80",
+            img2:"https://wallpaperaccess.com/full/96462.jpg",
+            name: "陳明廷",
+            nameeng: "Ming-Ting Chen",
+            bir: "1992/07/24",
+            add: "台北市",
+            email: "akira810724@gmail.com",
+            phone: "0986-605-705",
+            image: "./image/mingting.jpg",
+          };
+        },
+        methods: {
+          introduce() {
+            return "您好我是陳明廷，今年30歲，畢業於德明財經科技大學，資訊科技系。大學畢業後從事了餐飲業、物流業到前段時間回到母校圖書館服務約三年的時間。今年八月開始學習網頁設計。";
+          },
+          introduce2() {
+            return "目前熟悉HTML、CSS及RWD網頁切版的部分，Bootstrap、Javascript、jQuery、Figma及Git都有學習，有一定程度的了解，現在在學習Vue.js。我個性上較溫和，容易和大家相處，做事比較低調，但團隊需要我的時候我很樂意挺身而出。";
+          },
+          profession1(){
+            return "圖書館網頁設計維護/圖書館系統、設備及數位資源學習區維護/紙本圖書採購及編目/活動攝影/影片剪輯";
+          },
+          profession2(){
+            return "倉庫物品、物料進出管理/ 貨品的輸送與成品包裝/定期清點物料並將物料標示放於正確位置/ 定期追蹤複查庫存紀錄";
+          },
+        },
+        computed: {},
+      }).mount("#app");
     </script>
   </body>
 </html>
